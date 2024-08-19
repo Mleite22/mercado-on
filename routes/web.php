@@ -22,6 +22,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //rota admin
-Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth')->name('admin.dashboard');
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'admin'])->name('admin.dashboard');
 //rota vendor
 Route::get('vendor/dashboard', [VendorController::class, 'dashboard'])->middleware('auth')->name('vendor.dashboard');
