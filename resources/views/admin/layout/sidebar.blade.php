@@ -1,26 +1,31 @@
 <div class="main-sidebar sidebar-style-2">
-                
+
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="index.html">MLDesigner</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">MLD</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Painel</li>
+
             <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i
-                        class="fas fa-fire"></i><span>Painel de Controle</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i>
+                    <span>Painel de Controle</span>
+                </a>
                 <ul class="dropdown-menu">
                     <li class=active><a class="nav-link" href="index-0.html">Painel Principal</a></li>
                     <li><a class="nav-link" href="index.html">Painel de Comércio</a></li>
                 </ul>
             </li>
+
             <li class="menu-header">Iniciações</li>
+            
             <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i> <span>Layout</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Layout</span>
+                </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="layout-default.html">Layout Padrão</a></li>
                     <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
@@ -29,8 +34,8 @@
             </li>
 
             <li>
-                <a class="nav-link" href="blank.html"><i class="far fa-square"></i> 
-                <span>Blank Page</span>
+                <a class="nav-link" href="blank.html"><i class="far fa-square"></i>
+                    <span>Blank Page</span>
                 </a>
             </li>
 
@@ -60,7 +65,7 @@
                     <li><a class="nav-link" href="bootstrap-typography.html">Typography</a></li>
                 </ul>
             </li> --}}
-        
+
         </ul>
 
     </aside>

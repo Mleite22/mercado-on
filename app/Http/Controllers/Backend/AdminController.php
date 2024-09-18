@@ -17,4 +17,17 @@ class AdminController extends Controller
     {
         return view('admin/auth/login');
     }
+
+    //recuperar senha
+    public function forgot()
+    {
+        return view('admin/auth/forgot-password');
+    }
+
+    //Logout admin
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->route('admin.login');
+    }
 }

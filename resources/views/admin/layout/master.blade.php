@@ -37,7 +37,9 @@
 <body>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg"></div>
+            <div class="navbar-bg">
+                
+            </div>
             {{-- START NAVBAR --}}
             @include('admin.layout.navbar')
             {{-- END NAVBAR --}}
@@ -46,10 +48,10 @@
             @include('admin.layout.sidebar')
             {{-- END SIDEBAR --}}
 
-            <!-- START Main Content -->
+            <!-- START MAIN CONTENT -->
             <div class="main-content">
-
-                @yield('content')
+                    {{-- Submete ao Dashboard --}}
+                @yield('content') 
 
             </div>
             {{-- END MAIN CONTENT --}}

@@ -1,3 +1,30 @@
+{{-- <x-guest-layout>
+    <div class="mb-4 text-sm text-gray-600">
+        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    </div>
+
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+    <form method="POST" action="{{ route('password.email') }}">
+        @csrf
+
+        <!-- Email Address -->
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <x-primary-button>
+                {{ __('Email Password Reset Link') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout> --}}
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -38,7 +65,6 @@
                 <div class="row">
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                        {{-- LOGO --}}
                         <div class="login-brand">
                             <img src="{{ asset('backend/assets/img/logo-market.png') }}" alt="logo-Bacalhau"
                                 width="100" style="width: 70%; height: auto; box-shadow: none; border: none">
@@ -46,64 +72,48 @@
 
                         <div class="card card-primary" style="background: #5c2274; color: #ffffff; border: none">
                             <div class="card-header">
-                                <h4>Acesso Administrativo</h4>
+                                <h4>Recuperar Senha</h4>
                             </div>
+                            <br>
+
+                            @if (session('status'))
+                                <p class="alert alert-warning">
+                                    Enviamos por email seu link de redefinição de senha
+                                </p>
+                            @endif
 
                             <div class="card-body">
-                                
-                                <form action="{{ route('login') }}" class="needs-validation" method="post"
+
+                                <form action="{{ route('password.email') }}" class="needs-validation" method="post"
                                     novalidate="">
                                     @csrf
-
                                     <div class="form-group">
+
                                         <input id="email" type="email" class="form-control" name="email"
                                             placeholder="Email de Acesso" tabindex="1" value="{{ old('email') }}"
                                             required autofocus>
-                                        @if ($errors->has('email'))
+
+                                        @if ($errors->get('email'))
                                             <code>{{ $errors->first('email') }}</code>
                                         @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="d-block">
-
-                                            <input id="password" type="password" class="form-control" name="password"
-                                                placeholder="Senha de Acesso" tabindex="2"
-                                                value="{{ old('password') }}" required>
-                                            @if ($errors->has('password'))
-                                                <code>{{ $errors->first('password') }}</code>
-                                            @endif
-
-                                            <div class="float-right">
-                                                @if (Route::has('admin.forgot'))
-                                                    <a href="{{ route('admin.forgot') }}" class="text-small"
-                                                        style="color: #ffffff">
-                                                        Esqueceu sua senha?
-                                                    </a>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input"
-                                                tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Lembrar senha</label>
-                                        </div>
+                                        
                                     </div>
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4"
                                             style="background: #f4bb35; color: #000000">
-                                            Entrar
+                                            Recuperar
                                         </button>
                                     </div>
+
+                                    <div style="text-align: center"><a href="{{ route('admin.login') }}"
+                                            title="Voltar ao login" style="color: #ffffff">
+                                            Voltar ao login
+                                        </a></div>
                                 </form>
                             </div>
                         </div>
-                        {{-- footer --}}
+                        {{-- Fim RECUPERAR SENHA --}}
                         <div class="mt-5 text-muted text-center" style="color: #fff">
                             Criado por <a href="https//mldesigner.com.br" style="color: #fff">MLDesigner</a>
                         </div>

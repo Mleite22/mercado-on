@@ -1,5 +1,7 @@
+{{-- Chama tudo que está no master com extends --}}
 @extends('admin.layout.master')
 
+{{-- Envia par o master do sention para yield --}}
 @section('content')
 
 <section class="section">
