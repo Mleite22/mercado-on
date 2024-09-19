@@ -2,10 +2,10 @@
 
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">MLDesigner</a>
+            <a href="{{ route('admin.dashboard') }}">MLDesigner</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">MLD</a>
+            <a href="{{ route('admin.dashboard') }}">MLD</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Painel</li>
@@ -15,7 +15,7 @@
                     <span>Painel de Controle</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class=active><a class="nav-link" href="index-0.html">Painel Principal</a></li>
+                    <li class=active><a class="nav-link" href="index-0.html">Configurações</a></li>
                     <li><a class="nav-link" href="index.html">Painel de Comércio</a></li>
                 </ul>
             </li>

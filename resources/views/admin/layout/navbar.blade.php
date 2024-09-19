@@ -158,21 +158,23 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logado a {{ now()->format('i') }} min.</div>
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+                    <i class="far fa-user"></i> Perfil
                 </a>
                 <a href="features-activities.html" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
+                    <i class="fas fa-bolt"></i> Atividades
                 </a>
                 <a href="features-settings.html" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+                    <i class="fas fa-cog"></i> Configurações
                 </a>
                 <div class="dropdown-divider"></div>
 
-                <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    <i class="fas fa-sign-out-alt"></i> Logout
-</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
+                    <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
                 </form>
             </div>
 

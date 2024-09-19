@@ -32,7 +32,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-            <h4>News</h4>
+            <h4>Novos</h4>
           </div>
           <div class="card-body">
             42
@@ -47,7 +47,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-            <h4>Reports</h4>
+            <h4>Reportados</h4>
           </div>
           <div class="card-body">
             1,201
@@ -62,7 +62,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-            <h4>Online Users</h4>
+            <h4>Usuarios Online</h4>
           </div>
           <div class="card-body">
             47
