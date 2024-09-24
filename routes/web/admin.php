@@ -13,6 +13,7 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])
 Route::get('admin/profile', [ProfileController::class, 'index'])
 ->middleware(['auth', 'admin'])
 ->name('admin.profile');
+
 //Rota para atualizar o Usuario
 Route::post('admin/profile/update', [ProfileController::class, 'update'])
 ->middleware(['auth', 'admin'])

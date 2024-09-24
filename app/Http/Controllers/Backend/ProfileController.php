@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use File;
 
+
 class ProfileController extends Controller
 {
     //Ver perfil do ususario
@@ -27,8 +28,9 @@ class ProfileController extends Controller
 
         ]);
         //Atualizar
-        $user = Auth::user(); // Adicione uma dica de tipo
-
+        $user = Auth::user(); // Adiciona uma dica de tipo
+        /** @var \App\Models\User $user */
+        
         if($request->hasFile('image')){
 
             //Se existe uma foto na pasta, deleta e substitui
@@ -45,11 +47,14 @@ class ProfileController extends Controller
             $user->image = $path;
         }
 
-        /** @var \App\Models\User $user */
+        
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        return redirect()->back()->with('success', 'Perfil atualizado com sucesso!');
+
+        flash()->success('Perfil atualizado com sucesso!');
+        //return redirect()->back()->with('success', 'Perfil atualizado com sucesso!');
+        return redirect()->back();
     }
 
     public function updatePassword(Request $request)
@@ -63,7 +68,9 @@ class ProfileController extends Controller
         $request->user()->update([
             'password' => bcrypt($request->password),
         ]);
-        return redirect()->back()->with('successSenha', 'Senha atualizada com sucesso!');
+        flash()->success('Senha atualizada com sucesso!');
+        //return redirect()->back()->with('successSenha', 'Senha atualizada com sucesso!');
+        return redirect()->back();
         
     }
 }
