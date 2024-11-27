@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//chama todas as rotas de web 
+//chama todas as rotas para web 
 foreach(File::allFiles(__DIR__ .'/web') as $route_file){
     $route = require $route_file->getPathname();
 }

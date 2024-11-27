@@ -30,13 +30,12 @@ class ProfileController extends Controller
         //Atualizar
         $user = Auth::user(); // Adiciona uma dica de tipo
         /** @var \App\Models\User $user */
-        
-        if($request->hasFile('image')){
+
+        if ($request->hasFile('image')) {
 
             //Se existe uma foto na pasta, deleta e substitui
-            if(File::exists(public_path( $user->image))){
-                File::delete(public_path( $user->image));
-
+            if (File::exists(public_path($user->image))) {
+                File::delete(public_path($user->image));
             }
 
             $image = $request->image;
@@ -47,7 +46,7 @@ class ProfileController extends Controller
             $user->image = $path;
         }
 
-        
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
@@ -71,6 +70,5 @@ class ProfileController extends Controller
         flash()->success('Senha atualizada com sucesso!');
         //return redirect()->back()->with('successSenha', 'Senha atualizada com sucesso!');
         return redirect()->back();
-        
     }
 }
