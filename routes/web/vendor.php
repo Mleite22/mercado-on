@@ -4,4 +4,6 @@ use App\Http\Controllers\Backend\VendorController;
 use Illuminate\Support\Facades\Route;
 
 //rota vendor
-Route::get('vendor/dashboard', [VendorController::class, 'dashboard'])->middleware('auth')->name('vendor.dashboard');
+Route::get('vendor/dashboard', [VendorController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('vendor.dashboard');

@@ -157,7 +157,7 @@
                 @endif
                 <div class="d-sm-none d-lg-inline-block">Olá, {{ Auth::user()->name }}!</div>
             </a>
-            {{-- Menú do ususario --}}
+            {{-- Menú do ususario --}} 
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logado a {{ now()->format('i') }} min.</div>
 

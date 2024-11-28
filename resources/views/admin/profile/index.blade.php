@@ -22,7 +22,7 @@
                 novalidate="" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
-                    <h4>Editar Perfil</h4>
+                    <h4 style="color: #ffffff">Editar Perfil</h4>
                     </div>
                     <div class="card-body">
                     <div class="row">
@@ -44,21 +44,21 @@
                     @endif
                     </div>
 
-                    <label>Foto de Perfil</label>
-                    <input type="file" class="form-control" name="image">
+                    <label style="color: white">Foto de Perfil</label>
+                    <input type="file" class="form-control" name="image" style="color: #ffffff5d">
 
                     </div>
 
                     <div class="form-group col-md-6 col-12">
-                    <label>Nome</label>
-                    <input type="text" class="form-control" name="name"
+                    <label style="color: white">Nome</label>
+                    <input type="text" class="form-control" name="name" style="color: #ffffff5d"
                     value="{{ Auth::user()->name }}" required="">
 
                     </div>
 
                     <div class="form-group col-md-6 col-12">
-                    <label>E-mail</label>
-                    <input type="email" class="form-control" name="email"
+                    <label style="color: white">E-mail</label>
+                    <input type="email" class="form-control" name="email" style="color: #ffffff5d"
                     value="{{ Auth::user()->email }}" required="">
 
                     </div>
@@ -82,23 +82,23 @@
                 novalidate="" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
-                    <h4>Editar Senha</h4>
+                    <h4 style="color: #ffffff">Editar Senha</h4>
                     </div>
                     <div class="card-body">
                     <div class="row">
 
                     <div class="form-group col-12">
-                    <label>Senha Atual</label>
+                    <label style="color: white">Senha Atual</label>
                     <input type="password" class="form-control" name="current_password" placeholder="Digite sua senha atual">
                     </div>
 
                     <div class="form-group col-12">
-                    <label>Nova Senha</label>
+                    <label style="color: white">Nova Senha</label>
                     <input type="password" class="form-control" name="password" placeholder="Digite sua nova senha de no minimo 8 digitos">
                     </div>
 
                     <div class="form-group col-12">
-                    <label>Confirmar Senha</label>
+                    <label style="color: white">Confirmar Senha</label>
                     <input type="password" class="form-control" name="password_confirmation" placeholder="Confirme sua senha">
                     </div>
 

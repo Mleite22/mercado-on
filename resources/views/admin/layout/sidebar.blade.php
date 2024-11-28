@@ -15,8 +15,9 @@
                     <span>Painel</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class=active><a class="nav-link" href="index-0.html">Configurações</a></li>
+                    <li class=active><a class="nav-link" href="{{ route('admin.profile') }}">Configurações</a></li>
                     <li><a class="nav-link" href="{{ route('slider.index') }}">Slide Destaque</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.dashboard') }}">Painel de Controle</a></li>
                 </ul>
             </li>
 
