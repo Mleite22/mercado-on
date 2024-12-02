@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Painel Administrativo &mdash; MLdesigner</title>
+    <title>Painel Administrativo &mdash; MLDesigner</title>
 
     <!-- General CSS Files in Public -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -40,9 +40,9 @@
 <body>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg">
+            {{-- <div class="navbar-bg">
                 
-            </div>
+            </div> --}}
             {{-- START NAVBAR --}}
             @include('admin.layout.navbar')
             {{-- END NAVBAR --}}
@@ -57,7 +57,7 @@
                 @yield('content') 
 
             </div>
-            {{-- END MAIN CONTENT --}}
+            <!-- END MAIN CONTENT -->
             
             {{-- STARTE FOOTER --}}
             <footer class="main-footer">

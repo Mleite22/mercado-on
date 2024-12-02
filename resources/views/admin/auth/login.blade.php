@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -31,20 +31,22 @@
     <!-- /END GA -->
 </head>
 
-<body style="background: #8430a5">
+<body>
     <div id="app">
-        <section class="section" style="box-shadow: #31123f">
-            <div class="container mt-5">
+        <section  >
+            <div class="container mt-1">
                 <div class="row">
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        
                         {{-- LOGO --}}
                         <div class="login-brand">
                             <img src="{{ asset('backend/assets/img/logo-market.png') }}" alt="logo-Bacalhau"
                                 width="100" style="width: 70%; height: auto; box-shadow: none; border: none">
                         </div>
 
-                        <div class="card card-primary" style="background: #5c2274; color: #ffffff; border: none">
+                        
+                        <div class="card card-primary" style="color: #ffffff; border: none">
                             <div class="card-header">
                                 <h4>Acesso Administrativo</h4>
                             </div>
@@ -55,25 +57,32 @@
                                     novalidate="">
                                     @csrf
 
+                                    <!-- Email Address -->
                                     <div class="form-group">
                                         <input id="email" type="email" class="form-control" name="email"
                                             placeholder="Email de Acesso" tabindex="1" value="{{ old('email') }}"
-                                            required autofocus>
+                                            required autofocus
+                                        >
+
                                         @if ($errors->has('email'))
                                             <code>{{ $errors->first('email') }}</code>
                                         @endif
+
                                     </div>
 
+                                    <!-- Password -->
                                     <div class="form-group">
                                         <div class="d-block">
 
                                             <input id="password" type="password" class="form-control" name="password"
                                                 placeholder="Senha de Acesso" tabindex="2"
-                                                value="{{ old('password') }}" required>
+                                                value="{{ old('password') }}" required
+                                            >
                                             @if ($errors->has('password'))
                                                 <code>{{ $errors->first('password') }}</code>
                                             @endif
 
+                                            <!-- Remember Me -->
                                             <div class="float-right">
                                                 @if (Route::has('admin.forgot'))
                                                     <a href="{{ route('admin.forgot') }}" class="text-small"
@@ -103,13 +112,16 @@
                                 </form>
                             </div>
                         </div>
+
                         {{-- footer --}}
-                        <div class="mt-5 text-muted text-center" style="color: #fff">
+                        <div class="mt-1 text-muted text-center" style="color: #fff">
                             Criado por <a href="https//mldesigner.com.br" style="color: #fff">MLDesigner</a>
                         </div>
+
                         <div class="simple-footer" style="color: #fff">
                             Todos os direitos Reservados &copy; <?= date('Y') ?> MLDesigner
                         </div>
+                        
                     </div>
                 </div>
             </div>

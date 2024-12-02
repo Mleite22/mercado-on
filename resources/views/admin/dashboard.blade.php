@@ -4,8 +4,8 @@
 {{-- Envia par o master do sention para yield --}}
 @section('content')
 
-<section class="section">
-  <div class="section-header">
+<section class="section" >
+  <div class="section-header" >
     <h1>Painel de Controle</h1>
   </div>
 

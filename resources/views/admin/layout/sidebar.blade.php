@@ -1,29 +1,29 @@
-<div class="main-sidebar sidebar-style-2">
+<div class="main-sidebar sidebar-style-2"> 
 
-    <aside id="sidebar-wrapper">
+    <aside id="sidebar-wrapper" >
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}">MLDesigner</a>
+            <a href="{{ route('admin.dashboard') }}" >MLDesigner</a>
         </div>
-        <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('admin.dashboard') }}">MLD</a>
+        <div class="sidebar-brand sidebar-brand-sm" >
+            <a href="{{ route('admin.dashboard') }}" style="color: white">MLD</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Painel</li>
 
-            <li class="dropdown active">
+            <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i>
                     <span>Painel</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li class=active><a class="nav-link" href="{{ route('admin.profile') }}">Configurações</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.profile') }}">Configurações</a></li>
                     <li><a class="nav-link" href="{{ route('slider.index') }}">Slide Destaque</a></li>
                     <li><a class="nav-link" href="{{ route('admin.dashboard') }}">Painel de Controle</a></li>
                 </ul>
             </li>
 
             <li class="menu-header">Iniciações</li>
-            
-            <li class="dropdown">
+            {{-- dropdown - abre uma lista --}}
+            <li class="dropdown"> 
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Layout</span>
                 </a>
