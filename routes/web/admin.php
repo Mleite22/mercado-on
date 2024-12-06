@@ -10,7 +10,7 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])
 ->middleware(['auth', 'admin'])
 ->name('admin.dashboard');
 
-//Rota para ver o perfil admin
+//Rota para ver o perfil admin 
 Route::get('admin/profile', [ProfileController::class, 'index'])
 ->middleware(['auth', 'admin'])
 ->name('admin.profile');

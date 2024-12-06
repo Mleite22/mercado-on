@@ -19,7 +19,7 @@
 
             <div class="card">
                 <form action="{{ route('admin.profile.uptade') }}" method="post" class="needs-validation"
-                novalidate="" enctype="multipart/form-data">
+                    novalidate="" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header">
                     <h4 style="color: #ffffff">Editar Perfil</h4>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SliderController extends Controller
 {
     /**
-     * Exiba uma listagem do recurso.
+     * Exiba uma listagem do recurso. 
      */
     public function index()
     {

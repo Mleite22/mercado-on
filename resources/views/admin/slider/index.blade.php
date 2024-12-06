@@ -17,7 +17,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4>Slide Destaque</h4>
+              <h4 style="color: white">Slide Destaque</h4>
 
               <div class="card-header-action">
                 <a href="{{ route('slider.create') }}" class="btn btn-primary">Novo</a>

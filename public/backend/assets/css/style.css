@@ -160,8 +160,9 @@ p, ul:not(.list-unstyled), ol {
   .input-group-text:focus,
   .custom-select:focus,
   .custom-file-label:focus {
-    background-color: #fefeff;
-    border-color: #95a0f4; }
+    background-color: #490972;
+    border-color: #8b719b; 
+  }
 
 .input-group-text,
 select.form-control:not([size]):not([multiple]),
@@ -2731,13 +2732,16 @@ body.layout-3 .main-footer {
   padding: 20px 30px 20px 280px;
   margin-top: 40px;
   color: #98a6ad;
-  border-top: 1px solid #e3eaef;
+  /* border-top: 1px solid #e3eaef; */
   display: inline-block;
   width: 100%; }
   .main-footer .footer-left {
-    float: left; }
+    
+    float: left; 
+  }
   .main-footer .footer-right {
-    float: right; }
+    float: right; 
+  }
 
 .simple-footer {
   text-align: center;

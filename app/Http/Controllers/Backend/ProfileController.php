@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
-    //Ver perfil do ususario
+    //Ver perfil do admin 
     public function index()
     {
         return view('admin/profile/index');
@@ -48,7 +48,7 @@ class ProfileController extends Controller
             $user->image = $path;
         }
 
-
+ 
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
