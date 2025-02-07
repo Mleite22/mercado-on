@@ -27,36 +27,36 @@
             </div>
             <div class="card-body">
 
-              <form action="" method="post" enctype="multipart/form-data">
+              <form action="{{ route('slider.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="title" style="color: white">Imagem(1300x500px)</label>
-                  <input type="file" name="" class="form-control">
+                  <input type="file" name="banner" class="form-control">
                 </div>
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Titulo 1</label>
-                  <input type="text" name="" class="form-control">
+                  <input type="text" name="title_one" class="form-control" value="{{ old('title_one') }}">
                 </div>
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Titulo 2</label>
-                  <input type="text" name="" class="form-control">
+                  <input type="text" name="title_two" class="form-control" value="{{ old('title_two') }}">
                 </div>
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Valor</label>
-                  <input type="text" name="" class="form-control" placeholder="Adicione o valor">
+                  <input type="text" name="starting_price" class="form-control" placeholder="Adicione o valor" value="{{ old('starting_price') }}">
                 </div>
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Link</label>
-                  <input type="url" name="" class="form-control" placeholder="Adicione o link">
+                  <input type="url" name="link" class="form-control" placeholder="Adicione o link" value="{{ old('link') }}">
                 </div>
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Status</label>
-                  <select name="" class="form-control">
+                  <select name="status" class="form-control">
                     <option value="1">Ativo</option>
                     <option value="0">Inativo</option>
                   </select>
@@ -64,7 +64,7 @@
                 
                 <div class="form-group">
                   <label for="title" style="color: white">Ordem</label>
-                  <input type="number" name="" class="form-control" placeholder="Adicione a ordem de exibição">
+                  <input type="number" name="serial" class="form-control" placeholder="Adicione a ordem de exibição" value="{{ old('serial') }}">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Salvar</button>

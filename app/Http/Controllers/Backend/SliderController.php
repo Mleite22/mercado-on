@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\SliderDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
+use App\Traits\UploadImageTrait;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+    //Envio de imagem
+    use UploadImageTrait;
+
     /**
      * Exiba uma listagem do recurso. 
      */
-    public function index()
+    public function index(SliderDataTable $dataTable)
     {
-        return view('admin.slider.index');
+        // return view('admin.slider.index');
+        return $dataTable->render('admin.slider.index');
     }
 
     /**
-     * Mostre o formulário para criação de um novo recurso.
+     * Mostra o formulário para criação de um novo recurso.
      */
     public function create()
     {
@@ -28,7 +35,31 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $request->validate([
+            'banner' => ['required', 'image', 'max:2048'],
+            'title_one' => ['string', 'max:255'],
+            'title_two' => ['required', 'max:255'],
+            'starting_price' => ['max:255'],
+            'link' => ['url'],
+            'serial' => ['required', 'integer'],
+            'status' => ['required'],
+        ]);
+        $slider = new slider();
+
+        $imagePath = $this->uploadImage($request, 'banner', 'uploads/slider');
+
+        $slider->banner = $imagePath;
+        $slider->title_one = $request->title_one;
+        $slider->title_two = $request->title_two;
+        $slider->starting_price = $request->starting_price;
+        $slider->link = $request->link;
+        $slider->serial = $request->serial;
+        $slider->status = $request->status;
+        $slider->save();
+
+        toastr()->success('Cadastrado com sucesso!');
+        return redirect()->back();
     }
 
     /**

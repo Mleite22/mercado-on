@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
+            <div class="card-header"> 
               <h4 style="color: white">Slide Destaque</h4>
 
               <div class="card-header-action">
@@ -24,8 +24,9 @@
               </div>
 
             </div>
+            {{-- DataTable --}}
             <div class="card-body">
-
+              {{ $dataTable->table() }}
             </div>
           </div>
         </div>
@@ -35,3 +36,7 @@
     </div>
   </section>
 @endsection
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush  

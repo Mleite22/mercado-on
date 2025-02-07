@@ -32,12 +32,12 @@
                     <div class="mb-3">
                                                                 
                     @if (Auth::user()->image !=null)
-                    <img src="{{ asset(Auth::user()->image) }}"
+                    <img id="imagePreview" src="{{ asset(Auth::user()->image) }}"
                     alt="{{ Auth::user()->name }}" class="img-thumbnail" title="{{ Auth::user()->name }}"
                     style="width: 80px; height: auto; object-fit: cover; border-radius: 50%">
                                                                     
                     @else
-                    <img src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}"
+                    <img id="imagePreview" src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}"
                     alt="{{ Auth::user()->name }}" class="img-thumbnail" title="{{ Auth::user()->name }}"
                     style="width: 80px; height: auto; object-fit: cover; border-radius: 50%">
                                                                     
@@ -45,7 +45,7 @@
                     </div>
 
                     <label style="color: white">Foto de Perfil</label>
-                    <input type="file" class="form-control" name="image" style="color: #ffffff5d">
+                    <input type="file" class="form-control" name="image" style="color: #ffffff5d" onchange="previewImage(this)">
 
                     </div>
 
@@ -118,3 +118,15 @@
 </div>
 </section>
 @endsection
+@section('js')
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagePreview').src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

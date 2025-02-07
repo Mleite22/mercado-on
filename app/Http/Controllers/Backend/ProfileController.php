@@ -30,7 +30,7 @@ class ProfileController extends Controller
 
         ]);
         //Atualizar
-        $user = Auth::user(); // Adiciona uma dica de tipo
+        $user = Auth::user(); 
         /** @var \App\Models\User $user */
 
         if ($request->hasFile('image')) {
@@ -42,9 +42,9 @@ class ProfileController extends Controller
 
             $image = $request->image;
             $imageName = rand() . '-mldesigner-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
+            $image->move(public_path('uploads/avatar'), $imageName);
             //Caminho da pasta de imagens
-            $path = "/uploads/" . $imageName;
+            $path = "/uploads/avatar/" . $imageName;
             $user->image = $path;
         }
 
