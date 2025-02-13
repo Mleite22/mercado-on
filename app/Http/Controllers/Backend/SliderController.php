@@ -59,7 +59,7 @@ class SliderController extends Controller
         $slider->save();
 
         toastr()->success('Cadastrado com sucesso!');
-        return redirect()->back();
+        return redirect()->route('slider.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class SliderController extends Controller
     {
         //
         $request->validate([
-            'banner' => ['image', 'max:2048'],
+            'banner' => ['nullable','image', 'max:2048'],
             'title_one' => ['string', 'max:255'],
             'title_two' => ['required', 'max:255'],
             'starting_price' => ['max:255'],
@@ -96,7 +96,7 @@ class SliderController extends Controller
         ]);
         $slider = Slider::findOrFail($id);
 
-        $imagePath = $this->uploadImage($request, 'banner', 'uploads/slider', $slider->banner);
+        $imagePath = $this->updateImage($request, 'banner', 'uploads/slider', $slider->banner);
 
         $slider->banner = empty(!$imagePath) ? $imagePath : $slider->banner;
         $slider->title_one = $request->title_one;
@@ -116,6 +116,9 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        $this->deleteImage($slider->banner);
+        $slider->delete();
+        return response(['status' => 'success', 'message' => 'Excluido com sucesso!']);
     }
 }

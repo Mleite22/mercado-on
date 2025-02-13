@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Painel Administrativo &mdash; MLDesigner</title>
 
     <!-- General CSS Files in Public -->
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css') }}">
 
-    <!-- CSS Data Table -->    
+    <!-- CSS Data Table -->
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.6/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.6/css/dataTables.bootstrap5.css">
 
@@ -57,17 +58,17 @@
 
             <!-- START MAIN CONTENT -->
             <div class="main-content">
-                    {{-- Submete ao Dashboard --}}
-                @yield('content') 
+                {{-- Submete ao Dashboard --}}
+                @yield('content')
 
             </div>
             <!-- END MAIN CONTENT -->
-            
+
             {{-- STARTE FOOTER --}}
             <footer class="main-footer">
                 <div class="footer-left">
                     Todos os Direitos Reservados &copy; <?= date('Y') ?> <div class="bullet"></div> Desenvolvido por <a
-                        href="https://mldesigner/">MLDesigner</a>
+                        href="https://github.com/Mleite22">MLDesigner</a>
                 </div>
                 <div class="footer-right">
 
@@ -108,15 +109,78 @@
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 
+    {{-- InputMask --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    {{-- JS SWEETALERT --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     {{-- Implementando a logica do Toastr --}}
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-            toastr.error("{{$error}}");
+                toastr.error("{{ $error }}");
             @endforeach
-            @endif 
+        @endif
     </script>
-   @stack('scripts')
+    {{-- Implementando a logica do SweetAlert --}}
+    <script>
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('body').on('click', '.delete-item', function(event) {
+                event.preventDefault();
+                let deleteUrl = $(this).attr('href');
+
+                Swal.fire({
+                    title: "Tem certeza?",
+                    text: "Você não poderá reverter isso!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#1e5e2f",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Sim, excluir!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            type: 'DELETE',
+                            url: deleteUrl,
+
+                            success: function(data) {
+
+                                if (data.status == 'success') {
+                                    Swal.fire({
+                                        title: "Excluído!",
+                                        text: "Seu arquivo foi excluído com sucesso!",
+                                        icon: "success"
+                                    });
+                                    window.location.reload();
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        })
+                    }
+                });
+            })
+        });
+    </script>
+
+    <script>
+        //Adicionar máscara de moeda
+        $('#mascara_valor').mask('#.##0,00', {
+            reverse: true
+        });
+    </script>
+    @stack('scripts')
 </body>
 
 </html>
